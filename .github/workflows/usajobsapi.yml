@@ -33,6 +33,7 @@ jobs:
           git config --global user.email "devstoneapps@gmail.com"
           git add usajobsdata.json
           git commit -m "USA Jobs API fetching"
+          git push
         env:
           SECRETKEY: ${{ secrets.AUTH_KEY }}
           SECRETAGENT: ${{ secrets.USER_AGENT }}
