@@ -29,9 +29,55 @@ jobs:
       - name: API Call
         run: |
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=1102;1105;1106&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Acquisition_Contracting.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0302;0303;0304;0305;0309;0308;0318;0313;0319;0322;0326;0341;0344;0342;0350;0357;0356;0392;0399&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_ADMINISTRATIVE_MANAGEMENT.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0110;0119;0301;0340;0343;1101;1140;1144;1199;9903&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_BUSINESS_INDUSTRY.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0306;0332;0335;0390;0392;0394;0391;1410;1412;1420;1499;1421;1411;1550;2210;2299;2502;2504;0334;9908&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Information_Technology.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=1701;1702;1710;1712;1715;1720;1730;1740;1750;0090;0170&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Education.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0801;0802;0803;0804;0806;0807;0808;0809;0810;0817;0819;0830;0840;0850;0854;0855;0856;0858;0861;0871;0873;0893;0895;0896;0899&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Engineering.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0029;0028;0193;0401;0408;0499;0819&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Environmental_Management.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0020;0804;0807;0809;0808;0810;0817;1016;1020;1170;1173;1373;1601;1603;1640;1667;2801;2805;2810;3105;3359;3502;3566;3610;3820;4102;4204;4206;4601;4607;4717;4742;4801;4805;4818;4819;5001;5003;5048;5201;5210;5220;5301;5309;5306;5318;5334;5350;5352;5378;5407;5409;5426;6501;6502;6605;6610;6641;6652;8610;1103;1104;1107;1130&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Facilities_Engineering.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0501;0503;0505;0511;0525;0510;0526;0530;0544;0540;0545;0560;0561;0592;0599;0512;1109;1140;1160;1163&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Financial_Management.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0130;0131;1040&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Foreign_Affairs.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0201;0203;0260;0299;0360;0361;0160;1860&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Human_Resources.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0132&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Intelligence.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0083;0085;1810;1811;0025;2151;0089;0080;0086;0512&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Law_Enforcement.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0901;0904;0905;0930;0962;0950;0963;0967;0986;0998;0999;1210;1222&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Legal.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0346;1152;1670;2001;2003;2005;2010;2030;2032;2099;2101;2102;2110;2123;2130;2131;2135;2144;2150;2151;2152;2154;2161;2181;2183;2199;2185;6901;6904;6907;6910;6912;6968;7001;7002;7006;8862;9902;9904;9905;9906;9907;9917;9924;9928;9930;9931;9932;9933;9934;9936;9985;9988&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Logistics.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0180;0181;0185;0186;0187;0601;0602;0603;0610;0620;0621;0622;0630;0631;0633;0635;0636;0638;0639;0640;0642;0644;0645;0646;0647;0648;0649;0651;0661;0660;0662;0667;0665;0668;0669;0670;0671;0673;0679;0675;0680;0681;0682;0683;0685;0688;0690;0696;0698;0699;9996;0440&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Medical_Health.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0030;0050;0060;0101;0102;0142;0188;0189;0199;1051;1054;1056;2091;6914;7401;7402;7404;7407;7408;7603;9968;9971;9972;9973;9975;9976;9982;9991;9993;9994;9998&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Military_Community.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=1001;1035;1060;1071;1082;1083;1084;1087;1099&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Public_Affairs.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=1910;1999&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Quality_Assurance.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0017;0018;0019;0081;0089;0803;1815;1825;6913;9914;9915;9918;9919;9929;2121&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Safety_Public.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0199;0401;0403;0404;0408;0415;0460;0482;0486;0499;0701;0704;1301;1306;1310;1311;1315;1316;1320;1340;1341;1350;1360;1361;1371;1372;1501;1515;1520;1529;1530;1550;1599;0150&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_STEM.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?HiringPath=ses&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Senior_Leadership.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0062;2601;2602;2604;2606;2608;2610;2854;2892;3401;3414;3416;3701;3703;3705;3707;3711;3769;3801;3806;3809;4255;4301;4352;4602;4604;4701;4714;4737;4749;4840;5413;5423;5701;5703;5704;5705;5716;5725;5767;5782;5784;5786;5801;5803;5806;5823;7009;7301;7304;7305;7601;8255;8268;8602;8801;8810;8840;8852;9939;9940;9942;9944;9945;9952;9954;9955;9957;9961;9965;9995;9997;9999;1104;1107;1150;9903&Organization=DD&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Trades_Services.json
           git config --global user.name "GitHub Action"
           git config --global user.email "devstoneapps@gmail.com"
           git add usajobsdata.json
+          git add usajobs_Acquisition_Contracting.json
+          git add usajobs_ADMINISTRATIVE_MANAGEMENT.json
+          git add usajobs_BUSINESS_INDUSTRY.json
+          git add usajobs_Information_Technology.json
+          git add usajobs_Education.json
+          git add usajobs_Engineering.json
+          git add usajobs_Environmental_Management.json
+          git add usajobs_Facilities_Engineering.json
+          git add usajobs_Financial_Management.json
+          git add usajobs_Foreign_Affairs.json
+          git add usajobs_Human_Resources.json
+          git add usajobs_Intelligence.json
+          git add usajobs_Law_Enforcement.json
+          git add usajobs_Legal.json
+          git add usajobs_Logistics.json
+          git add usajobs_Medical_Health.json
+          git add usajobs_Military_Community.json
+          git add usajobs_Public_Affairs.json
+          git add usajobs_Quality_Assurance.json
+          git add usajobs_Safety_Public.json
+          git add usajobs_STEM.json
+          git add usajobs_Senior_Leadership.json
+          git add usajobs_Trades_Services.json
           git commit -m "USA Jobs API fetching"
           git push
         env:
