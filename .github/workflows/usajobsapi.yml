@@ -28,8 +28,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: API Call
         run: |
-          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?Organization=DD;NV&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata.json
-          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?Organization=AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata_2.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?Organization=DD;AR&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?Organization=NV;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata_2.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=1102;1105;1106&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Acquisition_Contracting.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0302;0303;0304;0305;0309;0308;0318;0313;0319;0322;0326;0341;0344;0342;0350;0357;0356;0392;0399&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_ADMINISTRATIVE_MANAGEMENT.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" 'https://data.usajobs.gov/api/search?JobCategoryCode=0110;0119;0301;0340;0343;1101;1140;1144;1199;9903&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_BUSINESS_INDUSTRY.json
