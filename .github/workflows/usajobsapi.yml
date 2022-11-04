@@ -43,6 +43,7 @@ jobs:
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0020;0804;0807;0809;0808;0810;0817;1016;1020;1170;1173;1373;1601;1603;1640;1667;2801;2805;2810;3105;3359;3502;3566;3610;3820;4102;4204;4206;4601;4607;4717;4742;4801;4805;4818;4819;5001;5003;5048;5201;5210;5220;5301;5309;5306;5318;5334;5350;5352;5378;5407;5409;5426;6501;6502;6605;6610;6641;6652;8610;1103;1104;1107;1130&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Facilities_Engineering.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0501;0503;0505;0511;0525;0510;0526;0530;0544;0540;0545;0560;0561;0592;0599;0512;1109;1140;1160;1163&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Financial_Management.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0130;0131;1040&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Foreign_Affairs.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0180;0181;0185;0186;0187;0101;0102;0638;0685&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Health_Social_Sciences.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0201;0203;0260;0299;0360;0361;0160;1860&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Human_Resources.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0132&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Intelligence.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0083;0085;1810;1811;0025;2151;0089;0080;0086;0512&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Law_Enforcement.json
@@ -73,6 +74,7 @@ jobs:
           git add usajobs_Facilities_Engineering.json
           git add usajobs_Financial_Management.json
           git add usajobs_Foreign_Affairs.json
+          git add usajobs_Health_Social_Sciences.json
           git add usajobs_Human_Resources.json
           git add usajobs_Intelligence.json
           git add usajobs_Law_Enforcement.json
