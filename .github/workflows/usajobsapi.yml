@@ -28,6 +28,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: API Call
         run: |
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=NV;AF;AR&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=1' -o NV-AF-AR-Count.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=DD01;DD02;DD04;DD05;DD06;DD07;DD08;DD10;DD11;DD12;DD13;DD15;DD16;DD21;DD23;DD25;DD26;DD27;DD28;DD29;DD34;DD35;DD36;DD48;DD58;DD59;DD60;DD61;DD62;DD63;DD64;DD65;DD66;DD69&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=1' -o DD-1-Count.json
+          curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=DD70;DD71;DD72;DD73;DD74;DD68;DD75;DD77;DD78;DD79;DD80;DD67;DD76;DD81;DD53;DD82;DD84;DD83;DD00&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=1' -o DD-2-Count.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=DD;NV&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=AF&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata-2.json
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=AR&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=9000' -o usajobsdata-3.json
@@ -59,6 +62,9 @@ jobs:
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?JobCategoryCode=0062;2601;2602;2604;2606;2608;2610;2854;2892;3401;3414;3416;3701;3703;3705;3707;3711;3769;3801;3806;3809;4255;4301;4352;4602;4604;4701;4714;4737;4749;4840;5413;5423;5701;5703;5704;5705;5716;5725;5767;5782;5784;5786;5801;5803;5806;5823;7009;7301;7304;7305;7601;8255;8268;8602;8801;8810;8840;8852;9939;9940;9942;9944;9945;9952;9954;9955;9957;9961;9965;9995;9997;9999;1104;1107;1150;9903&Organization=DD;NV;AR;AF&SortField=location&SortDirection=Asc&ResultsPerPage=9000' -o usajobs_Trades_Services.json
           git config --global user.name "GitHub Action"
           git config --global user.email "devstoneapps@gmail.com"
+          git add NV-AF-AR-Count.json
+          git add DD-1-Count.json
+          git add DD-2-Count.json
           git add usajobsdata.json
           git add usajobsdata-2.json
           git add usajobsdata-3.json
