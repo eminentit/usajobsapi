@@ -26,6 +26,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Specify the Node.js version you need
+          
       - name: API Call
         run: |
           curl -H "Host: data.usajobs.gov" -H "User-Agent: $SECRETAGENT" -H "Authorization-Key: $SECRETKEY" -H "Accept: application/json" 'https://data.usajobs.gov/api/search?Organization=NV;AF;AR&Fields=min&SortField=location&RemoteIndicator=False&SortDirection=Asc&ResultsPerPage=1' -o NV-AF-AR-Count.json
@@ -99,4 +105,100 @@ jobs:
         env:
           SECRETKEY: ${{ secrets.AUTH_KEY }}
           SECRETAGENT: ${{ secrets.USER_AGENT }}
+
+      - name: Modify JSON file 1
+        run: |
+          echo "const fs = require('fs');" > modify-json.js
+          echo "const filePath = 'usajobsdata.json';" >> modify-json.js
+          echo "const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));" >> modify-json.js
+          echo "data.SearchResult.SearchResultItems.forEach(item => {" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.QualificationSummary;" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.UserArea;" >> modify-json.js
+          echo "});" >> modify-json.js
+          echo "fs.writeFileSync(filePath, JSON.stringify(data, null, 2));" >> modify-json.js
+
+          # Run the Node.js script
+          node modify-json.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Modify JSON file 2
+        run: |
+          echo "const fs = require('fs');" > modify-json.js
+          echo "const filePath = 'usajobsdata-2.json';" >> modify-json.js
+          echo "const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));" >> modify-json.js
+          echo "data.SearchResult.SearchResultItems.forEach(item => {" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.QualificationSummary;" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.UserArea;" >> modify-json.js
+          echo "});" >> modify-json.js
+          echo "fs.writeFileSync(filePath, JSON.stringify(data, null, 2));" >> modify-json.js
+
+          # Run the Node.js script
+          node modify-json.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Modify JSON file 3
+        run: |
+          echo "const fs = require('fs');" > modify-json.js
+          echo "const filePath = 'usajobsdata-3.json';" >> modify-json.js
+          echo "const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));" >> modify-json.js
+          echo "data.SearchResult.SearchResultItems.forEach(item => {" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.QualificationSummary;" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.UserArea;" >> modify-json.js
+          echo "});" >> modify-json.js
+          echo "fs.writeFileSync(filePath, JSON.stringify(data, null, 2));" >> modify-json.js
+
+          # Run the Node.js script
+          node modify-json.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+      - name: Remove Whitespace from JSON file 1
+        run: |
+          echo "const fs = require('fs');" > remove-whitespace.js
+          echo "const filePath = 'usajobsdata.json';" >> remove-whitespace.js
+          echo "const data = fs.readFileSync(filePath, 'utf8').replace(/\s+/g, '');" >> remove-whitespace.js
+          echo "fs.writeFileSync(filePath, data);" >> remove-whitespace.js
+
+          # Run the Node.js script to remove whitespace
+          node remove-whitespace.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Remove Whitespace from JSON file 2
+        run: |
+          echo "const fs = require('fs');" > remove-whitespace.js
+          echo "const filePath = 'usajobsdata-2.json';" >> remove-whitespace.js
+          echo "const data = fs.readFileSync(filePath, 'utf8').replace(/\s+/g, '');" >> remove-whitespace.js
+          echo "fs.writeFileSync(filePath, data);" >> remove-whitespace.js
+
+          # Run the Node.js script to remove whitespace
+          node remove-whitespace.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove Whitespace from JSON file 3
+        run: |
+          echo "const fs = require('fs');" > remove-whitespace.js
+          echo "const filePath = 'usajobsdata-3.json';" >> remove-whitespace.js
+          echo "const data = fs.readFileSync(filePath, 'utf8').replace(/\s+/g, '');" >> remove-whitespace.js
+          echo "fs.writeFileSync(filePath, data);" >> remove-whitespace.js
+
+          # Run the Node.js script to remove whitespace
+          node remove-whitespace.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "devstoneapps@gmail.com"
+          git add usajobsdata.json
+          git add usajobsdata-2.json
+          git add usajobsdata-3.json
+          git commit -m "Remove QualificationSummary and AgencyMarketingStatement from JSON"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Runs a set of commands using the runners shell
