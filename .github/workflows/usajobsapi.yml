@@ -153,6 +153,22 @@ jobs:
           node modify-json.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Modify JSON file 4
+        run: |
+          echo "const fs = require('fs');" > modify-json.js
+          echo "const filePath = 'usajobsdata-all.json';" >> modify-json.js
+          echo "const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));" >> modify-json.js
+          echo "data.SearchResult.SearchResultItems.forEach(item => {" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.QualificationSummary;" >> modify-json.js
+          echo "    delete item.MatchedObjectDescriptor.UserArea;" >> modify-json.js
+          echo "});" >> modify-json.js
+          echo "fs.writeFileSync(filePath, JSON.stringify(data, null, 2));" >> modify-json.js
+
+          # Run the Node.js script
+          node modify-json.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       - name: Remove Whitespace from JSON file 1
         run: |
@@ -189,6 +205,18 @@ jobs:
           node remove-whitespace.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove Whitespace from JSON file 4
+        run: |
+          echo "const fs = require('fs');" > remove-whitespace.js
+          echo "const filePath = 'usajobsdata-all.json';" >> remove-whitespace.js
+          echo "const data = fs.readFileSync(filePath, 'utf8').replace(/\s+/g, '');" >> remove-whitespace.js
+          echo "fs.writeFileSync(filePath, data);" >> remove-whitespace.js
+
+          # Run the Node.js script to remove whitespace
+          node remove-whitespace.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Commit changes
         run: |
@@ -197,6 +225,7 @@ jobs:
           git add usajobsdata.json
           git add usajobsdata-2.json
           git add usajobsdata-3.json
+          git add usajobsdata-all.json
           git commit -m "Remove QualificationSummary and AgencyMarketingStatement from JSON"
           git push
         env:
