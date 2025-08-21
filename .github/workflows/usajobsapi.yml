@@ -221,7 +221,7 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Action"
-          git config --global user.email "devstoneapps@gmail.com"
+          git config --global user.email "risi@eminent-it.com"
           git add usajobsdata.json
           git add usajobsdata-2.json
           git add usajobsdata-3.json
